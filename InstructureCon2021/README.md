@@ -20,7 +20,7 @@ For best practices, you may want to set up a separate production and test connec
 - Set an owner email 
 - Set redirect URI to https://global.consent.azure-apim.net/redirect
 - Keep Client Credentials Audience as Canvas
-- Optionally enforce scoping (This has not been tested - You may have to supply the scopes on the Power Automate side when the connector is set up.
+- Optionally enforce scoping (Scopes will have to be declared on Power Automate side during setup)
 - Select Save
 - Make a note of the Client ID and Client Secret.
 
@@ -29,7 +29,7 @@ For best practices, you may want to set up a separate production and test connec
 - Optionally upload an icon
 - Optionally set a background color
 - Update the description
-- Update the host to your Instructure subaccount
+- Update the host to your Instructure URL (canvas.instructure.com)
 - Select Security to move to the next part of the setup
 - Keep Authentication Type as OAuth 2.0 and Identify provider as Generic OAuth 2
 - Provide the Client ID and Client Secret from the Canvas Developer Key steps above

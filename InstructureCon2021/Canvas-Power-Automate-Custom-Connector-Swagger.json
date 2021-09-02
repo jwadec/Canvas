@@ -1,0 +1,1587 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Canvas",
+    "description": "Canvas API Endpoints",
+    "version": "1.0"
+  },
+  "host": "canvas.instructure.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/api/v1/courses/{course_id}/pages": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "url"
+                },
+                "editing_roles": {
+                  "type": "string",
+                  "description": "editing_roles"
+                },
+                "page_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "page_id"
+                },
+                "last_edited_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "display_name": {
+                      "type": "string",
+                      "description": "display_name"
+                    },
+                    "avatar_image_url": {
+                      "type": "string",
+                      "description": "avatar_image_url"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "description": "html_url"
+                    },
+                    "pronouns": {
+                      "type": "string",
+                      "description": "pronouns"
+                    }
+                  },
+                  "description": "last_edited_by"
+                },
+                "published": {
+                  "type": "boolean",
+                  "description": "published"
+                },
+                "hide_from_students": {
+                  "type": "boolean",
+                  "description": "hide_from_students"
+                },
+                "front_page": {
+                  "type": "boolean",
+                  "description": "front_page"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "html_url"
+                },
+                "todo_date": {
+                  "type": "string",
+                  "description": "todo_date"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "locked_for_user": {
+                  "type": "boolean",
+                  "description": "locked_for_user"
+                },
+                "body": {
+                  "type": "string",
+                  "description": "body"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create Canvas Page",
+        "description": "Create a Canvas Page in a Course",
+        "operationId": "PAGE-CREATE",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "wiki_page[title]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wiki_page[editing_roles]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "wiki_page[notify_of_update]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "wiki_page[published]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "wiki_page[body]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/modules": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "position"
+                },
+                "unlock_at": {
+                  "type": "string",
+                  "description": "unlock_at"
+                },
+                "require_sequential_progress": {
+                  "type": "boolean",
+                  "description": "require_sequential_progress"
+                },
+                "publish_final_grade": {
+                  "type": "boolean",
+                  "description": "publish_final_grade"
+                },
+                "prerequisite_module_ids": {
+                  "type": "array",
+                  "items": {},
+                  "description": "prerequisite_module_ids"
+                },
+                "published": {
+                  "type": "boolean",
+                  "description": "published"
+                },
+                "items_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "items_count"
+                },
+                "items_url": {
+                  "type": "string",
+                  "description": "items_url"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a Canvas Module",
+        "operationId": "MODULE-CREATE",
+        "description": "This will create a Canvas Module in a Course",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module[name]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module[position]",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "module[require_sequential_progress]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "wiki_page[published]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/modules/{module_id}/items": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "position"
+                },
+                "indent": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "indent"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "module_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "module_id"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "html_url"
+                },
+                "page_url": {
+                  "type": "string",
+                  "description": "page_url"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "url"
+                },
+                "published": {
+                  "type": "boolean",
+                  "description": "published"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Add an item to a course module",
+        "description": "This will add an item to a course module",
+        "operationId": "MODULE-ADD-ITEM",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module_item[title]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module_item[type]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module_item[position]",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "wiki_page[published]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "module_item[page_url]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/modules/{module_id}": {
+      "put": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "position"
+                },
+                "unlock_at": {
+                  "type": "string",
+                  "description": "unlock_at"
+                },
+                "require_sequential_progress": {
+                  "type": "boolean",
+                  "description": "require_sequential_progress"
+                },
+                "publish_final_grade": {
+                  "type": "boolean",
+                  "description": "publish_final_grade"
+                },
+                "prerequisite_module_ids": {
+                  "type": "array",
+                  "items": {},
+                  "description": "prerequisite_module_ids"
+                },
+                "published": {
+                  "type": "boolean",
+                  "description": "published"
+                },
+                "items_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "items_count"
+                },
+                "items_url": {
+                  "type": "string",
+                  "description": "items_url"
+                },
+                "publish_warning": {
+                  "type": "boolean",
+                  "description": "publish_warning"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update Canvas Module",
+        "description": "Use this to update a Canvas Module",
+        "operationId": "MODULE-UPDATE",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "module[name]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module[position]",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "module[published]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/tabs/{tab_id}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "html_url"
+                },
+                "full_url": {
+                  "type": "string",
+                  "description": "full_url"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "position"
+                },
+                "visibility": {
+                  "type": "string",
+                  "description": "visibility"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "url"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Course Menu Tools",
+        "description": "Set the order of Course Menu Tools",
+        "operationId": "COURSE-MENU",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tab_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "hidden",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "/api/v1/accounts/{account_id}/courses": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "account_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "account_id"
+                },
+                "uuid": {
+                  "type": "string",
+                  "description": "uuid"
+                },
+                "start_at": {
+                  "type": "string",
+                  "description": "start_at"
+                },
+                "conclude_at": {
+                  "type": "string",
+                  "description": "conclude_at"
+                },
+                "grading_standard_id": {
+                  "type": "string",
+                  "description": "grading_standard_id"
+                },
+                "is_public": {
+                  "type": "string",
+                  "description": "is_public"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "allow_student_forum_attachments": {
+                  "type": "boolean",
+                  "description": "allow_student_forum_attachments"
+                },
+                "course_code": {
+                  "type": "string",
+                  "description": "course_code"
+                },
+                "default_view": {
+                  "type": "string",
+                  "description": "default_view"
+                },
+                "root_account_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "root_account_id"
+                },
+                "enrollment_term_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "enrollment_term_id"
+                },
+                "open_enrollment": {
+                  "type": "boolean",
+                  "description": "open_enrollment"
+                },
+                "allow_wiki_comments": {
+                  "type": "string",
+                  "description": "allow_wiki_comments"
+                },
+                "self_enrollment": {
+                  "type": "boolean",
+                  "description": "self_enrollment"
+                },
+                "license": {
+                  "type": "string",
+                  "description": "license"
+                },
+                "restrict_enrollments_to_course_dates": {
+                  "type": "boolean",
+                  "description": "restrict_enrollments_to_course_dates"
+                },
+                "grade_passback_setting": {
+                  "type": "string",
+                  "description": "grade_passback_setting"
+                },
+                "end_at": {
+                  "type": "string",
+                  "description": "end_at"
+                },
+                "public_syllabus": {
+                  "type": "boolean",
+                  "description": "public_syllabus"
+                },
+                "public_syllabus_to_auth": {
+                  "type": "boolean",
+                  "description": "public_syllabus_to_auth"
+                },
+                "storage_quota_mb": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "storage_quota_mb"
+                },
+                "is_public_to_auth_users": {
+                  "type": "boolean",
+                  "description": "is_public_to_auth_users"
+                },
+                "hide_final_grades": {
+                  "type": "boolean",
+                  "description": "hide_final_grades"
+                },
+                "apply_assignment_group_weights": {
+                  "type": "boolean",
+                  "description": "apply_assignment_group_weights"
+                },
+                "calendar": {
+                  "type": "object",
+                  "properties": {
+                    "ics": {
+                      "type": "string",
+                      "description": "ics"
+                    }
+                  },
+                  "description": "calendar"
+                },
+                "time_zone": {
+                  "type": "string",
+                  "description": "time_zone"
+                },
+                "blueprint": {
+                  "type": "boolean",
+                  "description": "blueprint"
+                },
+                "sis_course_id": {
+                  "type": "string",
+                  "description": "sis_course_id"
+                },
+                "sis_import_id": {
+                  "type": "string",
+                  "description": "sis_import_id"
+                },
+                "integration_id": {
+                  "type": "string",
+                  "description": "integration_id"
+                },
+                "workflow_state": {
+                  "type": "string",
+                  "description": "workflow_state"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create Course",
+        "description": "Create a Canvas Course",
+        "operationId": "COURSE-CREATE",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "as_user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course[name]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course[course_code]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course[open_enrollment]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "course[self_enrollment]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "course[term_id]",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "course[sis_course_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course[integration_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "enroll_me",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/sections": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "course_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "course_id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "start_at": {
+                  "type": "string",
+                  "description": "start_at"
+                },
+                "end_at": {
+                  "type": "string",
+                  "description": "end_at"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "restrict_enrollments_to_section_dates": {
+                  "type": "boolean",
+                  "description": "restrict_enrollments_to_section_dates"
+                },
+                "nonxlist_course_id": {
+                  "type": "string",
+                  "description": "nonxlist_course_id"
+                },
+                "sis_section_id": {
+                  "type": "string",
+                  "description": "sis_section_id"
+                },
+                "sis_course_id": {
+                  "type": "string",
+                  "description": "sis_course_id"
+                },
+                "integration_id": {
+                  "type": "string",
+                  "description": "integration_id"
+                },
+                "sis_import_id": {
+                  "type": "string",
+                  "description": "sis_import_id"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create Section",
+        "description": "Create a Section within a Course",
+        "operationId": "SECTION-CREATE",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "as_user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course_section[name]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course_section[sis_section_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course_section[integration_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "course_section[restrict_enrollments_to_section_dates]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "course_section[start_at]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time",
+            "x-ms-visibility": "advanced",
+            "description": "Section start date in ISO8601 format, e.g. 2011-01-01T01:00Z"
+          },
+          {
+            "name": "course_section[end_at]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time",
+            "description": "Section end date in ISO8601 format. e.g. 2011-01-01T01:00Z",
+            "x-ms-visibility": "advanced"
+          }
+        ]
+      }
+    },
+    "/api/v1/accounts/{account_id}/users": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "sortable_name": {
+                  "type": "string",
+                  "description": "sortable_name"
+                },
+                "short_name": {
+                  "type": "string",
+                  "description": "short_name"
+                },
+                "sis_user_id": {
+                  "type": "string",
+                  "description": "sis_user_id"
+                },
+                "integration_id": {
+                  "type": "string",
+                  "description": "integration_id"
+                },
+                "sis_import_id": {
+                  "type": "string",
+                  "description": "sis_import_id"
+                },
+                "login_id": {
+                  "type": "string",
+                  "description": "login_id"
+                },
+                "locale": {
+                  "type": "string",
+                  "description": "locale"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create User",
+        "description": "Create a Canvas User",
+        "operationId": "USER-CREATE",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user[name]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user[skip_registration]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "pseudonym[unique_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pseudonym[password]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pseudonym[sis_user_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pseudonym[integration_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pseudonym[send_confirmation]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "pseudonym[force_self_registration]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "communication_channel[address]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/sections/{section_id}/enrollments": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "user_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "user_id"
+                },
+                "course_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "course_id"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "associated_user_id": {
+                  "type": "string",
+                  "description": "associated_user_id"
+                },
+                "start_at": {
+                  "type": "string",
+                  "description": "start_at"
+                },
+                "end_at": {
+                  "type": "string",
+                  "description": "end_at"
+                },
+                "course_section_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "course_section_id"
+                },
+                "root_account_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "root_account_id"
+                },
+                "limit_privileges_to_course_section": {
+                  "type": "boolean",
+                  "description": "limit_privileges_to_course_section"
+                },
+                "enrollment_state": {
+                  "type": "string",
+                  "description": "enrollment_state"
+                },
+                "role": {
+                  "type": "string",
+                  "description": "role"
+                },
+                "role_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "role_id"
+                },
+                "last_activity_at": {
+                  "type": "string",
+                  "description": "last_activity_at"
+                },
+                "last_attended_at": {
+                  "type": "string",
+                  "description": "last_attended_at"
+                },
+                "total_activity_time": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total_activity_time"
+                },
+                "sis_import_id": {
+                  "type": "string",
+                  "description": "sis_import_id"
+                },
+                "sis_account_id": {
+                  "type": "string",
+                  "description": "sis_account_id"
+                },
+                "sis_course_id": {
+                  "type": "string",
+                  "description": "sis_course_id"
+                },
+                "course_integration_id": {
+                  "type": "string",
+                  "description": "course_integration_id"
+                },
+                "sis_section_id": {
+                  "type": "string",
+                  "description": "sis_section_id"
+                },
+                "section_integration_id": {
+                  "type": "string",
+                  "description": "section_integration_id"
+                },
+                "sis_user_id": {
+                  "type": "string",
+                  "description": "sis_user_id"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "html_url"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Section Enrollment",
+        "description": "Enroll a user into a Canvas Section",
+        "operationId": "ENROLLMENT-CREATE",
+        "parameters": [
+          {
+            "name": "section_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "as_user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "enrollment[user_id]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "enrollment[type]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "StudentEnrollment",
+              "TeacherEnrollment",
+              "TaEnrollment",
+              "ObserverEnrollment",
+              "DesignerEnrollment"
+            ]
+          },
+          {
+            "name": "enrollment[enrollment_state]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "active",
+              "invited",
+              "inactive"
+            ]
+          },
+          {
+            "name": "enrollment[notify]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "enrollment[self_enrolled]",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    "/api/v1/sections/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Section ID",
+                  "title": ""
+                },
+                "course_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Internal Canvas Course ID",
+                  "title": ""
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "start_at": {
+                  "type": "string",
+                  "description": "start_at"
+                },
+                "end_at": {
+                  "type": "string",
+                  "description": "end_at"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "restrict_enrollments_to_section_dates": {
+                  "type": "boolean",
+                  "description": "restrict_enrollments_to_section_dates"
+                },
+                "nonxlist_course_id": {
+                  "type": "string",
+                  "description": "nonxlist_course_id"
+                },
+                "sis_section_id": {
+                  "type": "string",
+                  "description": "sis_section_id"
+                },
+                "sis_course_id": {
+                  "type": "string",
+                  "description": "sis_course_id"
+                },
+                "integration_id": {
+                  "type": "string",
+                  "description": "integration_id"
+                },
+                "sis_import_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "sis_import_id"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Section Details",
+        "description": "Get section details of a Canvas course",
+        "operationId": "SECTION-GET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/courses/{course_id}/content_migrations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "user_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "user_id"
+                },
+                "workflow_state": {
+                  "type": "string",
+                  "description": "workflow_state"
+                },
+                "started_at": {
+                  "type": "string",
+                  "description": "started_at"
+                },
+                "finished_at": {
+                  "type": "string",
+                  "description": "finished_at"
+                },
+                "migration_type": {
+                  "type": "string",
+                  "description": "migration_type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "migration_issues_url": {
+                  "type": "string",
+                  "description": "migration_issues_url"
+                },
+                "migration_issues_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "migration_issues_count"
+                },
+                "progress_url": {
+                  "type": "string",
+                  "description": "progress_url"
+                },
+                "migration_type_title": {
+                  "type": "string",
+                  "description": "migration_type_title"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Course Copy",
+        "description": "Canvas Course Copy",
+        "operationId": "COURSE-COPY",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "migration_type",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "canvas_cartridge_importer",
+            "x-ms-visibility": "important",
+            "enum": [
+              "canvas_cartridge_importer",
+              "common_cartridge_importer",
+              "course_copy_importer",
+              "zip_file_importer",
+              "qti_converter",
+              "moodle_converter"
+            ]
+          },
+          {
+            "name": "settings[file_url]",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-ms-visibility": "important"
+          },
+          {
+            "name": "settings[insert_into_module_id]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "settings[insert_into_module_position]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "settings[source_course_id]",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "The Internal ID of the Canvas Course with Content",
+            "x-ms-summary": "Provide the ID of the Canvas Course that has Content",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "settings[overwrite_quizzes]",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean",
+            "x-ms-visibility": "advanced",
+            "description": "Should the bank be overridden with this one?"
+          },
+          {
+            "name": "settings[question_bank_name]",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "x-ms-visibility": "advanced",
+            "description": "Name of the Question Bank"
+          },
+          {
+            "name": "settings[move_to_assignment_group_id]",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-visibility": "advanced"
+          }
+        ]
+      }
+    },
+    "/api/v1/users/{Canvas User ID}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "sortable_name": {
+                  "type": "string",
+                  "description": "sortable_name"
+                },
+                "short_name": {
+                  "type": "string",
+                  "description": "short_name"
+                },
+                "sis_user_id": {
+                  "type": "string",
+                  "description": "sis_user_id"
+                },
+                "sis_import_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "sis_import_id"
+                },
+                "integration_id": {
+                  "type": "string",
+                  "description": "integration_id"
+                },
+                "login_id": {
+                  "type": "string",
+                  "description": "login_id"
+                },
+                "avatar_url": {
+                  "type": "string",
+                  "description": "avatar_url"
+                },
+                "enrollments": {
+                  "type": "string",
+                  "description": "enrollments"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "locale": {
+                  "type": "string",
+                  "description": "locale"
+                },
+                "last_login": {
+                  "type": "string",
+                  "description": "last_login"
+                },
+                "time_zone": {
+                  "type": "string",
+                  "description": "time_zone"
+                },
+                "bio": {
+                  "type": "string",
+                  "description": "bio"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get User Information",
+        "description": "Get the information of a Canvas User",
+        "operationId": "USER-GET",
+        "parameters": [
+          {
+            "name": "Canvas User ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/progress/{id}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "context_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "context_id"
+                },
+                "context_type": {
+                  "type": "string",
+                  "description": "context_type"
+                },
+                "user_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "user_id"
+                },
+                "tag": {
+                  "type": "string",
+                  "description": "tag"
+                },
+                "completion": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "completion",
+                  "title": ""
+                },
+                "workflow_state": {
+                  "type": "string",
+                  "description": "workflow_state"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "message"
+                },
+                "results": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    }
+                  },
+                  "description": "results"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "url"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Check Progress",
+        "description": "Check the progress of a job",
+        "operationId": "PROGRESS-CHECK",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://canvas.instructure.com/login/oauth2/auth",
+      "tokenUrl": "https://canvas.instructure.com/login/oauth2/token",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": []
+    }
+  ],
+  "tags": []
+}

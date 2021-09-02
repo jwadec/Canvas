@@ -60,7 +60,7 @@ Note: If you need additional endpoints, you can add them Under Actions -> New Ac
 
 ## Test the Connection
 
-- Prior to moving to Step 5, save the connector by select the Create connect button. If you previously saved, this button will be called Updte connector.
+- Prior to moving to Step 5, save the connector by select the Create connect button. If you previously saved, this button will be called Update connector.
 - With the connector saved, navigate to Step 5 - Test. 
 - Create a new connection. This will launch Canvas and have a familiar workflow to other apps where it requests permission to continue. 
 - With a connection established, you can check to see if the connector was successful. Use a get operation like USER-CREATE to see if a user search appears.
